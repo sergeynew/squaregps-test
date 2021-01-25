@@ -1,24 +1,22 @@
-const path = require('path')
-
-const vueSrc = './src'
-const stylesLink = './src/assets/sass'
-
 module.exports = {
-    runtimeCompiler: true,
-    configureWebpack: {
-        resolve: {
-            alias: {
-                '@': path.join(__dirname, vueSrc),
-                styles: path.join(__dirname, stylesLink)
+    "runtimeCompiler": true,
+    "configureWebpack": {
+        "resolve": {
+            "alias": {
+                "@": "/Users/novikovsergey/Desktop/Sites/squaregps-test-app/src",
+                "styles": "/Users/novikovsergey/Desktop/Sites/squaregps-test-app/src/assets/sass"
             },
-            symlinks: false
+            "symlinks": false
         }
     },
-    css: {
-        loaderOptions: {
-            sass: {
-                additionalData: '@import "~@/assets/sass/_variables.sass"'
+    "css": {
+        "loaderOptions": {
+            "sass": {
+                "additionalData": "@import \"~@/assets/sass/_variables.sass\""
             }
         }
-    }
+    },
+    "transpileDependencies": [
+        "vuetify"
+    ]
 }
