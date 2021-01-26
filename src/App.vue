@@ -2,8 +2,8 @@
   v-app
     v-app-bar(app color="primary" dark)
         v-spacer
-        v-btn(to="/map" text) Карта
-        v-btn(to="/about" text) О задании
+        v-btn(to="/map" text) {{ $t('menu.map') }}
+        v-btn(to="/about" text) {{ $t('menu.about') }}
     v-main
         v-container
             v-main
