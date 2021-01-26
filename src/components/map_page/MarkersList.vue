@@ -8,6 +8,7 @@
                 v-card.markers-list__item.pa-2.pointer(
                     v-for="marker, index in markers"
                     :key="index"
+                    :class="{'selected': selected_marker && index === selected_marker.id}"
                     @click="selectMarker(index)"
                     outlined
                     shaped
@@ -34,7 +35,8 @@ export default {
 
     computed: {
         ...mapState({
-            markers: (state) => state.map.markers
+            markers: (state) => state.map.markers,
+            selected_marker: (state) => state.map.selected_marker,
         })
     },
 
@@ -53,7 +55,11 @@ export default {
 </script>
 
 <style lang="sass">
-    .markers-list
-        max-height: 530px
-        overflow-y: scroll
+    .markers-list-component
+        .markers-list
+            max-height: 530px
+            overflow-y: scroll
+            &__item
+                &.selected 
+                    background: rgba(0, 0, 0, .1)
 </style>

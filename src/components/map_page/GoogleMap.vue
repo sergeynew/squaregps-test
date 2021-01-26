@@ -4,9 +4,10 @@
         ref="gmap"
         :option="map_options"
         :zoom="default_zoom"
-        :center="default_map_center"
+        :center="map_center ? map_center : default_map_center"
         style="width: 100%; height: 600px"
-        @click="createMarkerOnClick"
+        @click="createMarker"
+        @tilesloaded="onTilesLoaded"
     )
         GmapMarker(
             v-for="marker, id in markers"
@@ -63,35 +64,46 @@ export default {
             return {
                 content,
                 maxWidth: 200,
-                opened: !!this.selected_marker
             }
+        },
+
+        map_center () {
+            return this.markers[0] ?? null
         }
     },
 
     methods: {
-        createMarkerOnClick(location) {
+        createMarker (location) {
             const {lat, lng } = location.latLng
             this.$store.dispatch('map/saveMarker', { lat: lat(), lng: lng()})
         },
 
-        panMapToLocation(marker) {
+        panMapToLocation (marker) {
             this.$refs.gmap.panTo(marker)
             const markerObject = this.$refs.markers[marker.id]['$markerObject']
-            this.$refs.info_window.$infoWindowObject.open(this.$refs.gmap.$mapObject, markerObject)
+            const infoWindowObject = this.$refs.info_window.$infoWindowObject
+            if(markerObject && infoWindowObject) {
+                infoWindowObject.open(this.$refs.gmap.$mapObject, markerObject)
+            }
         },
 
-        onMarkerClick(event, id) {
+        onMarkerClick (event, id) {
             this.$store.dispatch('map/selectMarker', id)
+        },
+
+        onTilesLoaded () {
+            if(this.selected_marker) {
+                this.panMapToLocation(this.selected_marker)
+            }
         }
     },
 
     watch: {
-        selected_marker(marker) {
-            this.panMapToLocation(marker)
+        selected_marker (marker) {
+            this.$nextTick(() => {
+                this.panMapToLocation(marker)
+            })
         }
     }
 }
 </script>
-
-<style lang='sass' scoped>
-</style>

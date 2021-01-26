@@ -1,21 +1,9 @@
 <template lang="pug">
   v-app
-    v-app-bar(
-        app
-        color="primary"
-        dark
-    )
+    v-app-bar(app color="primary" dark)
         v-spacer
-        v-btn(
-            to="/map"
-            text
-        ) Карта
-            //- router-link(to="/map")
-        v-btn(
-            to="about"
-            text
-        ) О задании
-            //- router-link(to="/") 
+        v-btn(to="/map" text) Карта
+        v-btn(to="/about" text) О задании
     v-main
         v-container
             v-main
@@ -27,8 +15,5 @@
 
 export default {
     name: 'App',
-    data: () => ({
-    //
-    }),
-};
+}
 </script>

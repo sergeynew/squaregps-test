@@ -13,12 +13,19 @@ import MarkersList from './MarkersList.vue'
 export default {
     name: "TheMapPageComponent",
 
+    props: {
+        initial_marker_id: {
+            type: Number,
+            default: () => null
+        }
+    },
+    
     components: {
         GoogleMap, MarkersList
     },
 
     mounted() {
-        this.$store.dispatch('map/getSavedMarkers')
+        this.$store.dispatch('map/getInitialMarkersState', this.initial_marker_id)
     }
 }
 </script>
