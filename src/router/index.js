@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import TheAboutPage from '@/components/TheAboutPage.vue'
-import TheMapPage from '@/components/TheMapPage.vue'
+import TheMapPage from '@/components/map_page/TheMapPage.vue'
 
 Vue.use(Router)
 

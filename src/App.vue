@@ -18,7 +18,7 @@
             //- router-link(to="/") 
     v-main
         v-container
-            v-content
+            v-main
                 router-view
   </v-app>
 </template>

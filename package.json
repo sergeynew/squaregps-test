@@ -8,10 +8,12 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.11.1",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vue-router": "^3.4.9",
+    "vue2-google-maps": "^0.10.7",
     "vuetify": "^2.2.11",
     "vuex": "^3.6.0"
   },
@@ -47,13 +49,15 @@
       "parser": "babel-eslint"
     },
     "rules": {
-      "camelcase": "off",
-      "import/prefer-default-export": "off",
-      "semi": "off",
-      "indent": [
+        "camelcase": "off",
+        "import/prefer-default-export": "off",
+        "semi": "off",
+        "indent": [
         "error",
         4
-      ]
+      ],
+        "no-console": 1,
+        "no-debugger": 1
     }
   },
   "browserslist": [
