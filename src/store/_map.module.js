@@ -14,9 +14,9 @@ export const map = {
         getInitialMarkersState ({ commit, state }, initial_id = null) {
             const markers = MarkersStorage.getMarkers()
             commit('SET_INITIAL_MARKERS', markers)
-        
-            if (initial_id && state.markers[initial_id - 1]) {
-                commit('SET_SELECTED_MARKER', initial_id - 1)
+            const initial_marker_id = initial_id - 1
+            if (initial_id && state.markers[initial_marker_id]) {
+                commit('SET_SELECTED_MARKER', initial_marker_id)
             } else {
                 router.push({ name: 'map-index' })
             }
@@ -29,7 +29,6 @@ export const map = {
                 console.log(response)
                 commit('SAVE_MARKER', marker)
                 MarkersStorage.saveMarkers(state.markers)
-                
             } catch (e) {
                 throw Error(e)
             }

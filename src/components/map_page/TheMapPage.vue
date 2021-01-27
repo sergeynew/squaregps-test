@@ -1,9 +1,9 @@
 <template lang='pug'>
     .map-page
         v-row(alight='center' no-gutters)
-            v-col.col-6.col-md-4 
+            v-col.col-12.col-sm-12.col-md-4
                 markers-list()
-            v-col.col-12.col-sm-6.col-md-8 
+            v-col.col-12.col-sm-12.col-md-8 
                 google-map()
 </template>
 
@@ -13,15 +13,16 @@ import MarkersList from './MarkersList.vue'
 export default {
     name: "TheMapPageComponent",
 
+    components: {
+        GoogleMap, 
+        MarkersList
+    },
+
     props: {
         initial_marker_id: {
             type: Number,
             default: () => null
         }
-    },
-    
-    components: {
-        GoogleMap, MarkersList
     },
 
     mounted() {

@@ -1,5 +1,5 @@
 export const en = {
-    app_title: 'Test app for SquareGPS',
+    app_title: 'SquareGPS',
     menu: {
         about: 'About',
         map: 'Map page'

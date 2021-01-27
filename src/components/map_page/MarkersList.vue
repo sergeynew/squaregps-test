@@ -1,8 +1,6 @@
 <template lang='pug'>
-    .markers-list-component.mr-2
-        v-card(
-            :elevation="markers.length + 1"
-        )
+    .markers-list-component.mb-6
+        v-card
             v-card-title {{ $t('pages.map.markers') }}
             .markers-list.d-flex.flex-column
                 v-card.markers-list__item.pa-2.pointer(

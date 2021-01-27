@@ -33,7 +33,7 @@ export default {
         return { 
             map: {},
             default_map_center: {
-                lat: 56.827666856101466,
+                lat: 56.8276668561014,
                 lng: 60.5942530846571
             },
             default_zoom: 13,

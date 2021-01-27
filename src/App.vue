@@ -6,6 +6,7 @@
         TheLocaleSelector
         v-btn(to="/map" text) {{ $t('menu.map') }}
         v-btn(to="/about" text) {{ $t('menu.about') }}
+
     v-main
         v-container
             v-main

@@ -1,5 +1,5 @@
 export const ru = {
-    app_title: 'Тестовое задание для SquareGPS',
+    app_title: 'SquareGPS',
     menu: {
         about: 'Задание',
         map: 'Карта'
