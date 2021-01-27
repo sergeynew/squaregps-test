@@ -3,7 +3,7 @@
         v-card(
             :elevation="markers.length + 1"
         )
-            v-card-title Маркеры
+            v-card-title {{ $t('pages.map.markers') }}
             .markers-list.d-flex.flex-column
                 v-card.markers-list__item.pa-2.pointer(
                     v-for="marker, index in markers"

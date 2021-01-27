@@ -17,7 +17,6 @@ Vue.use(VueGoogleMaps, {
         key: process.env.VUE_APP_GOOGLE_MAPS_KEY
     }
 })
-console.log(locales)
 const i18n = new VueI18n({
     locale: 'ru', 
     messages: locales 
@@ -34,4 +33,6 @@ const app = new Vue({
     i18n,
     render: (h) => h(App)
 })
+
+
 export default app
